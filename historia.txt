@@ -1,0 +1,43 @@
+
+Documentación de Comandos de la práctica individual de GitHub.
+Realizada por: Paula Vázquez Tella
+
+
+# Paso 1: Crear la estructura del repositorio local.
+
+## 1. Crear el directorio RaizRepositorio:
+mkdir RaizRepositorio
+
+## 2. Cambiar al directorio RaizRepositorio:
+cd RaizRepositorio
+
+## 3. Crear los directorios Proyectos y Procesos:
+mkdir Proyectos
+mkdir Procesos
+
+## 4. Cambiar al directorio Proyectos:
+cd Proyectos
+
+## 5. Crear el directorio Prj1:
+mkdir Prj1
+
+## 6. Volver al directorio RaizRepositorio:
+cd ..
+
+## 7. Cambiar al directorio Procesos:
+cd Procesos
+
+## 8. Crear el directorio ControlDeCambios:
+mkdir ControlDeCambios
+
+
+# Paso 2: Crear la versión inicial del proceso de control de cambios junto a las plantillas en blanco.
+
+## 1. Antes de proceder a incluir los archivos indicados, crearemos el archivo historia.txt en la raíz del repositorio con el objetivo de documentar los comandos empleados en el transcurso de la práctica:
+touch historia.txt
+
+## 2. Ahora, cambiamos al directorio ControlDeCambios y creamos el directorio destinado a guardar las plantillas:
+cd .\Procesos\ControlDeCambios\
+mkdir Plantillas
+
+## 3. A continuación, añadimos la versión inicial de la descripción del proceso de control de cambios a ControlDeCambios y las pantillas a la carpeta Plantillas.
