@@ -1,9 +1,11 @@
 
+
 Documentación de Comandos de la práctica individual de GitHub.
 Realizada por: Paula Vázquez Tella
 
 
-# Paso 1: Crear la estructura del repositorio local.
+
+Paso 1: Crear la estructura del repositorio local.
 
 ## 1. Crear el directorio RaizRepositorio:
 mkdir RaizRepositorio
@@ -31,7 +33,8 @@ cd Procesos
 mkdir ControlDeCambios
 
 
-# Paso 2: Crear la versión inicial del proceso de control de cambios junto a las plantillas en blanco.
+
+Paso 2: Crear la versión inicial del proceso de control de cambios junto a las plantillas en blanco.
 
 ## 1. Antes de proceder a incluir los archivos indicados, crearemos el archivo historia.txt en la raíz del repositorio con el objetivo de documentar los comandos empleados en el transcurso de la práctica:
 touch historia.txt
@@ -40,4 +43,56 @@ touch historia.txt
 cd .\Procesos\ControlDeCambios\
 mkdir Plantillas
 
-## 3. A continuación, añadimos la versión inicial de la descripción del proceso de control de cambios a ControlDeCambios y las pantillas a la carpeta Plantillas.
+## 3. A continuación, añadimos la versión inicial de la descripción del proceso de control de cambios (v1) a ControlDeCambios y las pantillas a la carpeta Plantillas.
+
+
+
+Paso 3: Actualizar el repositorio local.
+
+## 1. Inicializamos un nuevo repositorio Git en el directorio actual, RaizRepositorio. 
+git init
+
+## 2. Agregamos todos los archivos y cambios en el directorio de trabajo al área de preparación (staging area). Preparamos los archivos para el primer commit.
+git add .
+
+## 3. Hacemos un commit con los cambios que están en el área de preparación. Con el mensaje "V1 Proceso de control de cambios" explicamos el propósito del commit.
+git commit -m "V1 Proceso de control de cambios"
+
+## 4. Renombramos la rama principal de "master" a "main". GitHub ahora utiliza "main" como la rama principal por defecto.
+git branch -M main
+
+## 5. Establecemos una conexión remota llamada "origin" a la URL del repositorio en GitHub llamado EnSo. 
+git remote add origin https://github.com/paaulavazz/EnSo.git
+
+## 6. Finalmente, con el siguiente comando, subimos (push) los cambios realizados en el repositorio local al repositorio remoto en GitHub.
+git push -u origin main
+
+
+
+Paso 4: Marcar este estado con la etiqueda "R1".
+
+## 1. Creamos la etiqueta anotada "R1" usando '-a' e incluyendo un mensaje descriptivo con la opción '-m'.
+git tag -a R1 -m "Versión R1"
+
+## 2. Empujamos la etiqueta al repositorio remoto.
+git push origin --tags
+
+
+
+Paso 5: Crear una rama denominada "Mejoras" e incluir el pdf con las propuestas de mejora en la carpeta de ControlDeCambios.
+
+## 1. Creamos una nueva rama llamada "Mejoras" y cambiamos automáticamente a ella. 
+git checkout -b Mejoras
+
+## 2. Agregamos el archivo PDF con las propuestas de mejora.
+git add Procesos/ControlDeCambios/DP_ControldeCambios_Grupo3-v1_1.pdf
+
+## 3. Hacemos un comit indicando los cambios realizados.
+git commit -m "Agregado pdf con propuestas de mejora"
+
+## 4. Empujamos la rama "Mejoras" al repositorio remoto de GitHub, enviando tanto la nueva rama como sus cambios.
+git push origin Mejoras
+
+
+
+Paso 6: Modificar el documento de Word para que sea la versión V2.
