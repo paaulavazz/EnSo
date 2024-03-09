@@ -43,54 +43,54 @@ touch historia.txt
 cd .\Procesos\ControlDeCambios\
 mkdir Plantillas
 
-## 3. A continuación, añadimos la versión inicial de la descripción del proceso de control de cambios (v1) a ControlDeCambios y las pantillas a la carpeta Plantillas.
+## 3. A continuación, añadimos la versión inicial de la descripción del proceso de control de cambios (v1) a ControlDeCambios y las pantillas a la carpeta Plantillas:
 
 
 
 Paso 3: Actualizar el repositorio local.
 
-## 1. Inicializamos un nuevo repositorio Git en el directorio actual, RaizRepositorio. 
+## 1. Inicializamos un nuevo repositorio Git en el directorio actual, RaizRepositorio:
 git init
 
-## 2. Agregamos todos los archivos y cambios en el directorio de trabajo al área de preparación (staging area). Preparamos los archivos para el primer commit.
+## 2. Agregamos todos los archivos y cambios en el directorio de trabajo al área de preparación (staging area). Preparamos los archivos para el primer commit:
 git add .
 
-## 3. Hacemos un commit con los cambios que están en el área de preparación. Con el mensaje "V1 Proceso de control de cambios" explicamos el propósito del commit.
+## 3. Hacemos un commit con los cambios que están en el área de preparación. Con el mensaje "V1 Proceso de control de cambios" explicamos el propósito del commit:
 git commit -m "V1 Proceso de control de cambios"
 
-## 4. Renombramos la rama principal de "master" a "main". GitHub ahora utiliza "main" como la rama principal por defecto.
+## 4. Renombramos la rama principal de "master" a "main". GitHub ahora utiliza "main" como la rama principal por defecto:
 git branch -M main
 
-## 5. Establecemos una conexión remota llamada "origin" a la URL del repositorio en GitHub llamado EnSo. 
+## 5. Establecemos una conexión remota llamada "origin" a la URL del repositorio en GitHub llamado EnSo:
 git remote add origin https://github.com/paaulavazz/EnSo.git
 
-## 6. Finalmente, con el siguiente comando, subimos (push) los cambios realizados en el repositorio local al repositorio remoto en GitHub.
+## 6. Finalmente, con el siguiente comando, subimos (push) los cambios realizados en el repositorio local al repositorio remoto en GitHub:
 git push -u origin main
 
 
 
 Paso 4: Marcar este estado con la etiqueda "R1".
 
-## 1. Creamos la etiqueta anotada "R1" usando '-a' e incluyendo un mensaje descriptivo con la opción '-m'.
+## 1. Creamos la etiqueta anotada "R1" usando '-a' e incluyendo un mensaje descriptivo con la opción '-m':
 git tag -a R1 -m "Versión R1"
 
-## 2. Empujamos la etiqueta al repositorio remoto.
+## 2. Empujamos la etiqueta al repositorio remoto:
 git push origin --tags
 
 
 
 Paso 5: Crear una rama denominada "Mejoras" e incluir el pdf con las propuestas de mejora en la carpeta de ControlDeCambios.
 
-## 1. Creamos una nueva rama llamada "Mejoras" y cambiamos automáticamente a ella. 
+## 1. Creamos una nueva rama llamada "Mejoras" y cambiamos automáticamente a ella: 
 git checkout -b Mejoras
 
-## 2. Agregamos el archivo PDF con las propuestas de mejora.
+## 2. Agregamos el archivo PDF con las propuestas de mejora:
 git add Procesos/ControlDeCambios/DP_ControldeCambios_Grupo3-v1_1.pdf
 
-## 3. Hacemos un comit indicando los cambios realizados.
+## 3. Hacemos un comit indicando los cambios realizados:
 git commit -m "Agregado pdf con propuestas de mejora"
 
-## 4. Empujamos la rama "Mejoras" al repositorio remoto de GitHub, enviando tanto la nueva rama como sus cambios.
+## 4. Empujamos la rama "Mejoras" al repositorio remoto de GitHub, enviando tanto la nueva rama como sus cambios:
 git push origin Mejoras
 
 
@@ -99,31 +99,63 @@ Paso 6: Modificar el documento de Word para que sea la versión V2.
 
 ## 1. Modificamos el word con los cambios que habían sido realizados en la versión 2 del proceso de control de cambios.
 
-## 2. Agregamos el archivo modificado al área de preparación, indicando a Git que deseamos incluir estos cambios en el próximo commit.
+## 2. Agregamos el archivo modificado al área de preparación, indicando a Git que deseamos incluir estos cambios en el próximo commit:
 git add /Procesos/ControlDeCambios/DP_ControldeCambios_Grupo3.docx
 
-## 3. Realizamos un commit con los cambios realizados en el documento de Word, junto a un mensaje descriptivo.
+## 3. Realizamos un commit con los cambios realizados en el documento de Word, junto a un mensaje descriptivo:
 git commit -m "V2 del Proceso de control de cambios"
 
-## 4. Enviamos los cambios a la rama "Mejoras" en el repositorio remoto, actualizando así la versión remota del documento con la versión V2 del Proceso de control de cambios.
+## 4. Enviamos los cambios a la rama "Mejoras" en el repositorio remoto, actualizando así la versión remota del documento con la versión V2 del Proceso de control de cambios:
 git push origin Mejoras
 
 
 
 Paso 7: Fundir la rama "Mejoras" con la rama main para, posteriormente, eliminarla.
 
-## 1.
+## 1. Nos cambiamos a la rama "main":
 git checkout main
 
-## 2.
+## 2. Fusionamos la rama "Mejoras" con la rama "main" aceptando automáticamente sus cambios:
 git merge --strategy-option=theirs Mejoras
 
-## 3.
+## 3. Realizamos un commit para confirmar la fusión:
 git commit -m "Merge branch 'Mejoras' into main"
 
-## 4.
+## 4. Eliminamos la rama "Mejoras" localmente:
 git branch -d Mejoras
 
-## 5.
+## 5. Eliminamos la rama "Mejoras" en el repositorio remoto:
+git push origin --delete Mejoras
+
+
+
+Paso 8: Borramos el pdf de las propuestas para que en el main solo quere la versión correcta del documento con la gestión del cambio (V2) y sus plantillas.
+
+## 1. Eliminamos el archivo PDF con las propuestas de mejora (localmente):
+git rm Procesos/ControlDeCambios/DP_ControldeCambios_Grupo3-v1_1.pdf
+
+## 2. Realizamos un commit para confirmar la eliminación:
+git commit -m "Eliminado PDF de Propuestas de Mejora"
+
+
+
+Paso 9: Actualizamos el repositorio y etiquetamos la versión actual con la versión "R2".
+
+## 1. Enviamos los cambios realizados, es decir, la eliminación del PDF, al repositorio remoto:
 git push origin main
+
+## 2. Etiquetamos la versión actual como "R2":
+git tag -a R2 -m "Versión R2"
+
+## 3. Enviamos la nueva etiqueta asociada al estado actual al repositorio remoto usando '--tags':
+git push origin main --tags
+
+
+
+Paso 10: Substitumos la versión 2 del proceso por la versión 3 en la rama principal y actualizamos el repositorio local.
+
+## 1. Directamente desde GitHub, reemplazamos el archivo con la versión 2 por el word que contiene la versión 3 del proceso de control de cambios.
+
+## 2. Actualizamos el repositorio local con los cambios realizados e GitHub.
+git pull origin main
 
