@@ -96,3 +96,34 @@ git push origin Mejoras
 
 
 Paso 6: Modificar el documento de Word para que sea la versión V2.
+
+## 1. Modificamos el word con los cambios que habían sido realizados en la versión 2 del proceso de control de cambios.
+
+## 2. Agregamos el archivo modificado al área de preparación, indicando a Git que deseamos incluir estos cambios en el próximo commit.
+git add /Procesos/ControlDeCambios/DP_ControldeCambios_Grupo3.docx
+
+## 3. Realizamos un commit con los cambios realizados en el documento de Word, junto a un mensaje descriptivo.
+git commit -m "V2 del Proceso de control de cambios"
+
+## 4. Enviamos los cambios a la rama "Mejoras" en el repositorio remoto, actualizando así la versión remota del documento con la versión V2 del Proceso de control de cambios.
+git push origin Mejoras
+
+
+
+Paso 7: Fundir la rama "Mejoras" con la rama main para, posteriormente, eliminarla.
+
+## 1.
+git checkout main
+
+## 2.
+git merge --strategy-option=theirs Mejoras
+
+## 3.
+git commit -m "Merge branch 'Mejoras' into main"
+
+## 4.
+git branch -d Mejoras
+
+## 5.
+git push origin main
+
