@@ -129,7 +129,7 @@ git push origin --delete Mejoras
 
 
 
-Paso 8: Borramos el pdf de las propuestas para que en el main solo quere la versión correcta del documento con la gestión del cambio (V2) y sus plantillas.
+Paso 8: Borrar el pdf de las propuestas para que en el main solo quere la versión correcta del documento con la gestión del cambio (V2) y sus plantillas.
 
 ## 1. Eliminamos el archivo PDF con las propuestas de mejora (localmente):
 git rm Procesos/ControlDeCambios/DP_ControldeCambios_Grupo3-v1_1.pdf
@@ -139,7 +139,7 @@ git commit -m "Eliminado PDF de Propuestas de Mejora"
 
 
 
-Paso 9: Actualizamos el repositorio y etiquetamos la versión actual con la versión "R2".
+Paso 9: Actualizar el repositorio y etiquetar la versión actual con la versión "R2".
 
 ## 1. Enviamos los cambios realizados, es decir, la eliminación del PDF, al repositorio remoto:
 git push origin main
@@ -152,10 +152,60 @@ git push origin main --tags
 
 
 
-Paso 10: Substitumos la versión 2 del proceso por la versión 3 en la rama principal y actualizamos el repositorio local.
+Paso 10: Substituir la versión 2 del proceso por la versión 3 en la rama principal y actualizar el repositorio local.
 
-## 1. Directamente desde GitHub, reemplazamos el archivo con la versión 2 por el word que contiene la versión 3 del proceso de control de cambios.
+## 1. Directamente desde la rama principal, reemplazamos el archivo con la versión 2 por el word que contiene la versión 3 del proceso de control de cambios.
 
-## 2. Actualizamos el repositorio local con los cambios realizados e GitHub.
+## 2. Añadimos el cambio al área de preparación:
+git add Procesos/ControlDeCambios/DP_ControldeCambios_Grupo3.docx
+
+## 3. Realizamos un commit para confirmar el cambio:
+git commit -m "V3 del Proceso de control de cambios"
+
+
+
+Paso 11: Devolver la rama principal al estado anterior, actualizar con la versión 3 y sus plantillas y marcar con la etiqueta "R3".
+
+## 1. Usaremos el siguiente comando para identificar el hash del commit anterior que deseamos revertir:
+git log
+
+## 2. Revertimos los cambios locales al estado anterior al commit identificado:
+git reset --hard bb5606f807271de7b18ac5ca1ee9d8731aa7874e
+
+## 3. Añadimos estos cambios al área de preparación:
+git add -A
+
+## 4. Realizamos un commit que indique que se han revertido los cambios:
+git commit -m "Revertir cambios para incluir plantillas"
+
+## 5. Ahora, añadimos directamente desde la rama principal, tal y como se nos indica, la V3 del proceso de control de cambios y las plantillas actualizadas:
+
+## 6. Etiquetamos la versión actual como "R3":
+git tag -a R3 -m "Versión R3"
+
+
+
+Paso 12: Hacer push de la rama principal y los tags para actualizar el repositorio remoto de GitHub.
+
+## 1. Push de la rama principal y los tags al repositorio de GitHub:
+git push origin main --tags
+
+
+
+Paso 13: Comprobar si la rama principal está actualizada.
+
+## 1. Usamos el siguiente comando para traer los cambios recientes desde el repositorio remoto y aplicarlos en nuestro repositorio local:
 git pull origin main
 
+
+
+Paso 14: Comprobar las diferencias entre la versión de historia.txt del repositorio remoto y el local.
+
+## 1. Con el siguiente comando comparamos el estado actual del archivo historia.txt con la versión de la rama "main" del repositorio remoto:
+git diff origin/main historia.txt
+
+
+
+Paso 15: Actualizar el repositorio remoto con todos los cambios:
+
+## 1.
