@@ -208,4 +208,11 @@ git diff origin/main historia.txt
 
 Paso 15: Actualizar el repositorio remoto con todos los cambios:
 
-## 1.
+## 1. Añadimos todos los cambios al área de preparación para ser incluidos en el próximo commit:
+git add .
+
+## 2. Ahora que los cambios están en el área de preparación, hacemos un nuevo commit con su respectivo mensaje descriptivo:
+git commit -m "Todo actualizado"
+
+## 3. Una vez hecho el commit local, enviamos los cambios al repositorio remoto:
+git push origin main
